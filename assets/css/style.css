@@ -24,7 +24,11 @@ body {
 
 	font-size: 18px;
 	font-weight: bold;
-}
+	/*display: inline-block;*/
+/*	position: relative;
+	left: 0
+	bottom: 210px;
+*/}
 
 #topic-form {
 
@@ -32,7 +36,23 @@ body {
 	padding: 40px;
 }
 
-#images {
+.topic-fig {
 
-	float: right;
+/*	float left;
+*/	display: inline-block;
+	padding-right: 20px;
+	padding-left: 20px;
+}
+
+label {
+	font-size: 26px;
+	font-weight: bolder;
+	
+}
+
+#add-topic {
+	font-size: 26px;
+	font-weight: bolder;
+
+	
 }

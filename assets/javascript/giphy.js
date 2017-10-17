@@ -24,20 +24,21 @@ $(window).on( "load", function() { //make sure window has finished loading
 
 		        var ratingData = response.data[i].rating;
 
-		        var rating = $("<p>");
+		        var rating = $("<figcaption>");
 		        
-		        rating.attr("class", "rating");
+		        rating.addClass("rating");
+		        rating.addClass(topicName + i);
 		        rating.html("Rating: " + ratingData);
 		
 		        $("#images").prepend(rating);
-
 
 		        var imageUrlS = response.data[i].images.fixed_height_still.url;
 		        var imageUrlA = response.data[i].images.fixed_height.url;
 		 
 		        var topicImage = $("<img>");
 
-		        topicImage.attr("class", "giphy");
+		        topicImage.addClass("giphy");
+		        topicImage.addClass(topicName + i);
 		        topicImage.attr("src", imageUrlS);
 		        topicImage.attr("alt", (topicName + i));
 		        topicImage.attr("image-still", imageUrlS);
@@ -45,8 +46,9 @@ $(window).on( "load", function() { //make sure window has finished loading
 		        topicImage.attr("image-state", "still");
 
 		        $("#images").prepend(topicImage);
-		    
 
+		    
+		        $("." + (topicName + i)).wrapAll("<figure class='topic-fig'></figure>")
 		    }    
           
 
