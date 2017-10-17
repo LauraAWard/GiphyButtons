@@ -1,8 +1,8 @@
 $(window).on( "load", function() { //make sure window has finished loading
 
-       var topics = ["undead", "clown", "spider", "monster", "bat", "frankenstein", "coffin", "basement", "tomb", "asylum", 
-       				 "haunted", "graveyard", "alien", "funhouse", "exorcism", "rat", "ghost", "werewolf", "zombie", "raven", 
-       				 "demon", "vampire", "witch", "mummy", "skeleton", "cannibal", "jack-o-lantern", "morgue", "pumpkin"];
+       var topics = ["scarecrow", "clown", "monster", "frankenstein", "coffin", "basement", "asylum", "spooky", "crypt", "pumpkin",
+       				 "haunted", "gravestone", "alien", "exorcism", "bats", "ghost", "werewolf", "zombie", "slasher", "poltergeist",
+       				 "demonic", "vampire", "witch", "mummy", "skeleton", "cannibal", "jack-o-lantern", "satanic", "trick-or-treat" ];
 
 
     function displayGiphy() {

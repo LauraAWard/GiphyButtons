@@ -1,0 +1,38 @@
+.jumbotron {
+	
+	background-color: Black;
+
+}
+
+h1 {
+	
+	font-family: 'Nosifer', cursive;
+	color: #B40404;
+	text-align: center;
+
+
+}
+
+body {
+
+	font-family: 'Amatic SC', cursive;
+	font-size: 24px;
+	background-color: #FF8000;
+}
+
+.rating {
+
+	font-size: 18px;
+	font-weight: bold;
+}
+
+#topic-form {
+
+	text-align: center;
+	padding: 40px;
+}
+
+#images {
+
+	float: right;
+}
