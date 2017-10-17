@@ -4,6 +4,7 @@ $(window).on( "load", function() { //make sure window has finished loading
        				 "haunted", "gravestone", "alien", "exorcism", "bats", "ghost", "werewolf", "zombie", "slasher", "poltergeist",
        				 "demonic", "vampire", "witch", "mummy", "skeleton", "cannibal", "jack-o-lantern", "satanic", "trick-or-treat" ];
 
+       var retrieveCounter = 0;
 
     function displayGiphy() {
 
@@ -47,10 +48,14 @@ $(window).on( "load", function() { //make sure window has finished loading
 
 		        $("#images").prepend(topicImage);
 
-		    
-		        $("." + (topicName + i)).wrapAll("<figure class='topic-fig'></figure>")
+		    	var giphySet = (topicName + retrieveCounter);
+
+		        $("." + (topicName + i)).wrapAll("<figure class='topic-fig' " + giphySet + "'></figure>")
 		    }    
-          
+ 		        
+ 		$("." + giphySet).wrapAll("<div class='topic-set'></div>")
+         
+         retrieveCounter++;
 
         });
  
