@@ -39,7 +39,8 @@ button:hover {
 
 .jumbotron {
 	
-	background-color: Black;
+	background-color: #0e1525;
+	margin-bottom: 0;
 }
 
 .topic {
@@ -89,10 +90,9 @@ button:hover {
 	font-weight: bolder;
 }
 
-#buttons-view {
+#grassy {
 	
 	background-image: url("../images/grass.jpg");
-	src
 }
 
 #left {
@@ -119,4 +119,9 @@ button:hover {
 #end {
 
 	padding-bottom: 355px;
+}
+
+#horizon {
+	background-image: url("../images/graveheadersmall.jpg");
+	height: 75px;
 }
