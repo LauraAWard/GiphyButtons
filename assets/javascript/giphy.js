@@ -1,20 +1,24 @@
 $(window).on( "load", function() { //make sure window has finished loading
 
-       var topics = ["scarecrow", "clown", "monster", "frankenstein", "coffin", "basement", "asylum", "spooky", "crypt", "pumpkin",
-       				 "haunted", "gravestone", "alien", "exorcism", "bats", "ghost", "werewolf", "zombie", "slasher", "poltergeist",
+       var topics = ["scarecrow", "clown", "monster", "frankenstein", "dracula", "basement", "asylum", "spooky", "crypt", "pumpkin",
+       				 "haunted", "gravestone", "alien", "exorcism", "bats", "ghost", "werewolf", "zombie", "slasher", "halloween",
        				 "demonic", "vampire", "witch", "mummy", "skeleton", "cannibal", "jack-o-lantern", "satanic", "trick-or-treat" ];
-
-       var retrieveCounter = 0;
 
     function displayGiphy() {
 
         var topicName = $(this).attr("topic-name");
+ 
+        //replace spaces with + for API query string
+        if(topicName.indexOf(" ") > -1) {
+        	topicName = topicName.split(" ").join("+");
+        }
+
         var resultCount = 10;
         var offSet = (Math.floor(Math.random() * (15)) + 1);
         var apiKey = "dc6zaTOxFJmzC";
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topicName + 
         				"&api_key=" + apiKey + "&limit=" + resultCount + "&offset=" + offSet;
-
+        				console.log(queryURL);
         $.ajax({
 	        url: queryURL,
 	        method: "GET"
@@ -22,6 +26,11 @@ $(window).on( "load", function() { //make sure window has finished loading
          
  
 	 		for (i = 0; i < resultCount; i++) {
+
+	 			//replace + with - for class name
+        		if(topicName.indexOf("+") > -1) {
+        			topicName = topicName.split("+").join("-");
+        		}
 
 		        var ratingData = response.data[i].rating;
 
@@ -48,15 +57,17 @@ $(window).on( "load", function() { //make sure window has finished loading
 
 		        $("#images").prepend(topicImage);
 
-		    	var giphySet = (topicName + retrieveCounter);
+		    	var giphySet = (topicName + "-" + i);
 
-		        $("." + (topicName + i)).wrapAll("<figure class='topic-fig' " + giphySet + "'></figure>")
+		    	//selecting the <img> and <figcaption> tags by class and wrapping them in a <figure> tag to keep 
+		    	//them bound together even if the inline-block wraps to the next line
+		        $("." + (topicName + i)).wrapAll("<figure class='topic-fig' " + giphySet + "'></figure>");
+
+		        //Removing the class from <img> and <figcaption> so the elements don't get selected and wrapped  
+		        //in a figure tag again by the above wrapAll() line the next time the same topic button is pressed
+		        $("." + (topicName + i)).removeClass(topicName + i);
 		    }    
  		        
- 		$("." + giphySet).wrapAll("<div class='topic-set'></div>")
-         
-         retrieveCounter++;
-
         });
  
     }
@@ -64,7 +75,7 @@ $(window).on( "load", function() { //make sure window has finished loading
 
     function displayButtons() {
 
-        $("#buttons-view").empty();
+       	$("#buttons-view").empty();
 
         for (var i = 0; i < topics.length; i++) {
 
@@ -81,6 +92,7 @@ $(window).on( "load", function() { //make sure window has finished loading
     }
 
     $("#add-topic").on("click", function(event) {
+    
         event.preventDefault();
 
         var topic = $("#topic-input").val().trim();
