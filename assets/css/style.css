@@ -11,6 +11,7 @@ h1 {
 	font-family: 'Nosifer', cursive;
 	color: #FF8000;
 	text-align: center;
+	text-shadow: 3px 3px Yellow;
 }
 
 label {
@@ -86,4 +87,36 @@ button:hover {
 
 	font-size: 26px;
 	font-weight: bolder;
+}
+
+#buttons-view {
+	
+	background-image: url("../images/grass.jpg");
+	src
+}
+
+#left {
+	
+	padding-right: 20px;
+	padding-top: 10px;
+	text-align: right;
+}
+
+#right {
+
+	padding-left: 15px;
+	padding-top: 20px;
+	text-align: left;
+}
+
+#bottom {
+
+	float: right;
+	bottom: 0px;
+	right: 0px;
+}
+
+#end {
+
+	padding-bottom: 355px;
 }
